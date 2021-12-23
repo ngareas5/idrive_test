@@ -8,7 +8,7 @@
     <td width="30%"><b>Currency</b></td>
     <td width="60%">
       <select name="Currency" id="type" class="form-control plan" onchange="step_change_currency(this);"  >
-        <% @countries.each do |map|  %>
+        <% @currencies.each do |map|  %>
           <option value= "<%= map["rate"] %>" id="<%= map["currency"] %>"><%= map["currency"] %></option>
         <% end %>
       </select>

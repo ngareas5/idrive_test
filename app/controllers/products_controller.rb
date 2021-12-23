@@ -4,10 +4,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    countries_xml = open('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml') {|f| f.read }
-    countries = Hash.from_xml(countries_xml)
-    @countries =countries["Envelope"]["Cube"]["Cube"][0]["Cube"]
-    @countries = @countries.unshift({"currency"=>"EUR", "rate"=>""})
+    currencies_xml = open('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml') {|f| f.read }
+    currencies = Hash.from_xml(currencies_xml)
+    @currencies =currencies["Envelope"]["Cube"]["Cube"][0]["Cube"]
+    @currencies = @currencies.unshift({"currency"=>"EUR", "rate"=>""})
   end
 
   def show
