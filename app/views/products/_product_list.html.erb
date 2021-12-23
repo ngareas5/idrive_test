@@ -1,0 +1,25 @@
+<table class="table table-sm table-striped ml-4" style="max-width: 15rem;">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%count=0%>
+    <% products.each do |product| %>
+      <tr>
+        <td ><%= product.name %></td>
+        <td ><%= product.description %></td>
+        <td id="<%=count%>"><%= product.price %></td>
+        <td ><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <%count+=1%>
+    <% end %>
+  </tbody>
+</table>
