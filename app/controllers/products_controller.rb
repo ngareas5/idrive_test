@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
     prices = []
     unless params[:currency] == "EUR"
       Product.pluck(:price).each do |p|
-        prices << Product.exchange_currency(p, params[:currency])
+        prices << Product.exchange_currency(p, params[:currency],params[:rate])
       end
     else
       prices = Product.pluck(:price)
