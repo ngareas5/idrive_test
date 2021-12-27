@@ -8,7 +8,7 @@
     <td width="30%"><b>Currency</b></td>
     <td width="60%">
       <select name="Currency" id="type" class="form-control plan" onchange="step_change_currency(this);"  >
-        <% @countries.each do |map|  %>
+        <% @currencies.each do |map|  %>
           <option value= "<%= map["rate"] %>" id="<%= map["currency"] %>"><%= map["currency"] %></option>
         <% end %>
       </select>
@@ -19,35 +19,4 @@
   <%= render 'products/product_list', products:@products%>
 </div>
 <br>
-
 <%= link_to 'New Product', new_product_path %>
-<!--
-<script type="text/javascript">
-  // function step_change_currency(t){
-  //   var currency = t[t.selectedIndex].id
-  //   var rate=  t[t.selectedIndex].value;
-  //   debugger
-  //   var url ='/convert_currency?currency='+currency+'&rate='+rate
-  //   var xhr = new XMLHttpRequest();
-
-  //   xhr.open("GET", url, true);
-  //   xhr.onreadystatechange = function() {
-  //     debugger
-  //     if (this.readyState == 4 && this.status == 200) {
-  //       debugger
-  //       // document.getElementById("demo").innerHTML =
-  //       // this.responseText;
-  //     }
-  //   };
-  //   // xhr.send();
-  //   // $.ajax({
-  //   //     type: "GET",
-  //   //     url: "/products/convert_currency",
-  //   //     data: {
-  //   //       currency: currency,
-  //   //       rate: rate
-  //   //     }
-  //   //   });
-  // }
-</script>
- -->
